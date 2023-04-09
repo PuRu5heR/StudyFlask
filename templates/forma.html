@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+    </head>
+
+    <body>
+        <h2>Моя форма</h2>
+        <form action="/forma" method="POST">
+            <p>
+                <label>Фамилия:</label>
+                <br>
+                <input type="text" name="surname" />
+            </p>
+            <p>
+                <label>Имя:</label>
+                <br>
+                <input type="text" name="name" />
+            </p>
+            <p>
+                <label>Дата рождения:</label>
+                <br>
+                <input type="date" name="birth_date" />
+            </p>
+            <p>
+                <label>Мужской:</label>
+                <input type="radio" name="sex" value="М" />
+                <label>Женский:</label>
+                <input type="radio" name="sex" value="Ж" />
+                <label>Не определился:</label>
+                <input type="radio" name="sex" value="Х" />
+            </p>
+            <p>
+                <label>Страна:</label>
+                <br>
+                <input type="text" name="country" />
+            </p>
+            <p>
+                <label>Город:</label>
+                <br>
+                <input type="text" name="city" />
+            </p>
+            <p>
+                <input type="submit" value="Зарегистрировать"/>
+            </p>
+        </form>
+        <br>
+        <a href="/">Главная страница</a>
+    </body>
+</html>

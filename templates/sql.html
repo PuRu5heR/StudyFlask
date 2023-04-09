@@ -2,10 +2,45 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Динамическая таблица умножения</title>
+        <title>Динамическая таблица</title>
     </head>
 
     <body>
-
+        <form action="/sql" method="POST">
+            <p>
+                <label>Поиск:</label>
+                <br>
+                <input type="text" name="search" />
+            </p>
+            <p>
+                <input type="submit" value="Поиск"/>
+            </p>
+        </form>
+        <table border>
+            <tr>
+                <td>Название</td>
+                <td>Категория</td>
+                <td>Статус</td>
+                <td>Цена</td>
+                <td>Продавец</td>
+                <td>Страна</td>
+                <td>Город</td>
+                <td>ID</td>
+                <td>Картинка</td>
+            </tr>
+            {% for i in range(length_list) -%}
+                <tr>
+                    <td>{{products[i][0]}}</td>
+                    <td>{{products[i][1]}}</td>
+                    <td>{{products[i][2]}}</td>
+                    <td>{{products[i][3]}}</td>
+                    <td>{{products[i][4]}}</td>
+                    <td>{{products[i][5]}}</td>
+                    <td>{{products[i][6]}}</td>
+                    <td>{{products[i][7]}}</td>
+                    <td><img src="C:/Users/User/PycharmProjects/Task1/photos/image{{products[i][7]}}.jpg"></td>
+                </tr>
+            {% endfor -%}
+        </table>
     </body>
 </html>
