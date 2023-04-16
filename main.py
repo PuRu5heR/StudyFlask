@@ -110,4 +110,4 @@ def computer(temp=""):
 
 
 if __name__ == "__main__":
-    app.run(host="192.168.58.2", debug=True)
+    app.run(host="192.168.1.132", debug=True)
