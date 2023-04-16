@@ -171,8 +171,7 @@ class Store:
             country = str(data[0][2])
             city = str(data[0][3])
             products[i] = [str(products[i][2]), str(products[i][3]), str(products[i][4]), str(products[i][5]) + " " +
-                           str(products[i][6]), surname + " " + name, country, city, str(products[i][1]),
-                           products[i][7]]
+                           str(products[i][6]), surname + " " + name, country + ", " + city, str(products[i][1])]
         return products
 
     def search_products(self, search_text):
@@ -193,7 +192,7 @@ class Store:
                 city = str(data[0][3])
                 output_products.append(
                     [str(products[i][2]), str(products[i][3]), str(products[i][4]), str(products[i][5]) + " " +
-                     str(products[i][6]), surname + " " + name, country, city, str(products[i][1]), products[i][7]])
+                     str(products[i][6]), surname + " " + name, country + ", " + city, str(products[i][1])])
         return output_products
 
 

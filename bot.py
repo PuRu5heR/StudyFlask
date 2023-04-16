@@ -205,7 +205,7 @@ def main(store, customer):
 
     @disp.message_handler(state=States.StatePutImage, content_types=['photo'])
     async def put_image(sms: types.Message):
-        await sms.photo[-1].download(destination_file="C:/Users/User/PycharmProjects/Task1/photos/image.jpg")
+        await sms.photo[-1].download(destination_file="photos/image.jpg")
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, input_field_placeholder="Buttons!")
         keyboard.row(types.KeyboardButton(text="Готово"))
         await sms.answer("Нажмите 'Готово'", reply_markup=keyboard)
@@ -255,9 +255,11 @@ def main(store, customer):
     async def show_catalog(sms: types.Message):
         catalog = store.get_products()
         for i in range(len(catalog)):
-            await bot.send_photo(sms.from_user.id, photo=types.InputFile("C:/Users/User/PycharmProjects/Task1/photos"
-                                                                         "/image" + catalog[i][7] + ".jpg"))
-            await sms.answer(catalog[i])
+            message = catalog[i][0] + "\nКатегория: " + catalog[i][1] + "\nСтатус: " + catalog[i][2] + "\nЦена: " \
+                      + catalog[i][3] + "\nПродавец: " + catalog[i][4] + "\nМестоположение: " + catalog[i][5] \
+                      + "\nID: " + catalog[i][6]
+            await bot.send_photo(sms.from_user.id, photo=types.InputFile("photos\image" + catalog[i][6] + ".jpg"))
+            await sms.answer(message)
 
     executor.start_polling(disp)
 
