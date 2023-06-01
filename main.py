@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 from store import Store
 from customers import Customers
 from random import randint
-import qrcode
 import os
 
 app = Flask(__name__)
@@ -91,15 +90,11 @@ def download(file):
     D = app.root_path + "\\files\\"
     print(D)
     return send_from_directory(directory=D, path=file, as_attachment=True)
-    # for files in os.walk(D):
-    #     for filename in files:
-    #         if filename[0] == file:
-    #             pass
 
 
 @app.route("/computer")
 @app.route("/computer/<path:temp>")
-def computer(temp=""):
+def computer():
     D = app.root_path
     dir = os.listdir(D)
     out = ""
